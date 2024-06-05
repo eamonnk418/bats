@@ -19,5 +19,8 @@ jobs:
       - name: Install BATS locally
         run: npm install --prefix . bats
 
+      - name: Create alias for BATS
+        run: echo "alias bats='./node_modules/.bin/bats'" >> $HOME/.bashrc
+      
       - name: Run BATS Tests
-        run: ./node_modules/.bin/bats test/test.bats
+        run: bats test/test.bats
