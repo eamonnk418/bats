@@ -1,0 +1,22 @@
+name: CI
+
+on:
+    pull_request: 
+        branches: 
+            - main
+    push: 
+        branches: 
+            - main
+    workflow_dispatch: 
+
+jobs:
+    main:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Install BATS
+              run: npm install -g bats
+            - name: Run BATS Tests
+              run: bats test/test.bats
+            
