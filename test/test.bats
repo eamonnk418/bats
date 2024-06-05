@@ -10,5 +10,5 @@ setup() {
 @test "can run our script" {
     # notice the missing ./
     # As we added src/ to $PATH, we can omit the relative path to `src/project.sh`.
-    project.sh
+    code_freeze.sh
 }
