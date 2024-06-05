@@ -16,11 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Install BATS
-        run: npm install bats
-
-      - name: Add npm package binary directory to PATH
-        run: echo 'export PATH="./node_modules/.bin:$PATH"' >> $GITHUB_ENV
+      - name: Install BATS locally
+        run: npm install --prefix . bats
 
       - name: Run BATS Tests
-        run: bats test/test.bats
+        run: ./node_modules/.bin/bats test/test.bats
